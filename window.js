@@ -155,13 +155,12 @@ Template.SimpleChatWindow.helpers({
         var template = Template.instance()
         var chats = Chats.find({roomId: template.getRoomId()}, {sort: {date: 1}})
 
-
         let handleChanges = chats.observeChanges({
             added: (id, doc) => {
                 const username = template.getUsername()
                 if (template.showReceived) {
                     if (!_.contains(doc.receivedBy, username) && doc.message) {
-                        if(doc.username != username && typeof SimpleChat.options.onClientReceiveNewMessage == "function") {
+                        if(doc.username != username && typeof SimpleChat.options.onClientReceiveNewMessage === "function") {
                           SimpleChat.options.onClientReceiveNewMessage.call(this,doc)
                         }
                         Meteor.call('SimpleChat.messageReceived', id, username)
@@ -243,6 +242,3 @@ Template.SimpleChatWindow.events({
 
     }
 });
-
-
-

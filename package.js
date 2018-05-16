@@ -13,7 +13,8 @@ Package.onUse(function (api) {
         'ecmascript',
         'jquery',
         'tracker',
-        'reactive-var'
+        'reactive-var',
+        'mizzao:autocomplete'
     ])
     api.use(['check'], ['server', 'client'])
     api.addAssets(['assets/bell.mp3'],'client')
