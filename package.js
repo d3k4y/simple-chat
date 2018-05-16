@@ -1,7 +1,7 @@
 Package.describe({
     summary: "Simple chat window. The star point to make your own chat",
-    version: "0.4.3",
-    name: "cesarve:simple-chat",
+    version: "0.5.0",
+    name: "d3k4y:simple-chat",
     git: "https://github.com/cesarve77/simple-chat"
 });
 Package.onUse(function (api) {
