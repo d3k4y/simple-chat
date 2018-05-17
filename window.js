@@ -26,6 +26,10 @@ Template.SimpleChatWindow.onCreated(function () {
     this.showViewed = this.data.showViewed != undefined ? this.data.showViewed : SimpleChat.options.showViewed
     this.showJoined = this.data.showJoined != undefined ? this.data.showJoined : SimpleChat.options.showJoined
     this.showReceived = this.data.showReceived != undefined ? this.data.showReceived : SimpleChat.options.showReceived
+    this.autocompleteOptions = this.data.autocompleteOptions != undefined ? this.data.autocompleteOptions : SimpleChat.options.autocompleteOptions
+
+    console.info('this.data.autocompleteOptions xxx', this.data.autocompleteOptions)
+
     this.increment = this.limit.get()
     //accept function (for reactive data) or plain data
     if (typeof this.data.roomId != "function")

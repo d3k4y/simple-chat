@@ -1,3 +1,6 @@
+import {Meteor} from "meteor/meteor";
+import {Template} from "meteor/templating";
+
 /**
  * Created by cesar on 25/2/16.
  */
@@ -38,6 +41,18 @@ export const SimpleChat = {
         height: '300px',
         inputTemplate: 'SimpleChatInput',
         loadMoreTemplate: 'LoadMore',
+        autocompleteOptions: {
+            position: "top",
+            limit: 10,
+            rules: [
+                {
+                    token: '@',
+                    collection: Meteor.users,
+                    field: "username",
+                    // template: Template.userPill
+                },
+            ]
+        },
     },
     configure: function (options) {
         this.options = this.options || {};
