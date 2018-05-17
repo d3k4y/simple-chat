@@ -14,7 +14,7 @@ Package.onUse(function (api) {
         'jquery',
         'tracker',
         'reactive-var',
-        'mizzao:autocomplete'
+        'mizzao:autocomplete@0.5.1'
     ])
     api.use(['check'], ['server', 'client'])
     api.addAssets(['assets/bell.mp3'],'client')
