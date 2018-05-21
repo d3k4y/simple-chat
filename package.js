@@ -23,7 +23,7 @@ Package.onUse(function (api) {
     api.mainModule('server.js', 'server');
 
     if (api.export) {
-        api.export(['parseChatMessages'], ['client', 'server']);
+        api.export(['parseChatMessages'], ['client']);
     }
 });
 

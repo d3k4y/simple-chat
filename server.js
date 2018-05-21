@@ -8,6 +8,7 @@ import './methods'
 import './methods_server'
 
 
+/*
 export function parseChatMessages (tokenCallback) {
     $('.direct-chat-messages .direct-chat-msg .direct-chat-text').each((offset, msgNode) => {
         const messageText = msgNode.firstChild.nextSibling.nodeValue;
@@ -39,3 +40,4 @@ export function parseChatMessages (tokenCallback) {
         msgNode.firstChild.nextSibling.nodeValue = '';
     });
 }
+*/
