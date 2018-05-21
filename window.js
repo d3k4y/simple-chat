@@ -28,8 +28,6 @@ Template.SimpleChatWindow.onCreated(function () {
     this.showReceived = this.data.showReceived != undefined ? this.data.showReceived : SimpleChat.options.showReceived
     this.autocompleteOptions = this.data.autocompleteOptions != undefined ? this.data.autocompleteOptions : SimpleChat.options.autocompleteOptions
 
-    console.info('this.data.autocompleteOptions xxx', this.data.autocompleteOptions)
-
     this.increment = this.limit.get()
     //accept function (for reactive data) or plain data
     if (typeof this.data.roomId != "function")
