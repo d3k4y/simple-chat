@@ -866,11 +866,11 @@
     font-family: 'chat';
     font-weight: normal;
     font-style: normal;
-    src: url('assets/fonts/chat.eot');
-    src: url('assets/fonts/chat.eot?#iefix') format('embedded-opentype'),
-    url('assets/fonts/chat.woff') format('woff'),
-    url('assets/fonts/chat.ttf') format('truetype'),
-    url('assets/fonts/chat.svg#chat') format('svg');
+    src: url('{d3k4y:simple-chat}/assets/fonts/chat.eot');
+    src: url('{d3k4y:simple-chat}/(assets/fonts/chat.eot?#iefix') format('embedded-opentype'),
+    url('{d3k4y:simple-chat}/assets/fonts/chat.woff') format('woff'),
+    url('{d3k4y:simple-chat}/assets/fonts/chat.ttf') format('truetype'),
+    url('{d3k4y:simple-chat}/assets/fonts/chat.svg#chat') format('svg');
 }
 .simple-chat [data-icon]:before
 {
