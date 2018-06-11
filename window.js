@@ -117,11 +117,11 @@ Template.SimpleChatWindow.onRendered(function () {
 
             SimpleChat.scrollToEnd(this)
             if (this.beep && window.visivility == 'hidden') {
-                new Audio('/packages/cesarve_simple-chat/assets/bell.mp3').play()
+                new Audio('{d3k4y:simple-chat}/bell.mp3').play()
             }
         } else {
             if (this.beep && username != doc.username) {
-                new Audio('/packages/cesarve_simple-chat/assets/bell.mp3').play()
+                new Audio('{d3k4y:simple-chat}/assets/bell.mp3').play()
             }
         }
     })
@@ -159,11 +159,11 @@ Template.SimpleChatWindow.helpers({
 
         let handleChanges = chats.observeChanges({
             added: (id, doc) => {
-                const username = template.getUsername()
+                const username = Meteor.user().username
                 if (template.showReceived) {
                     if (!_.contains(doc.receivedBy, username) && doc.message) {
                         if(doc.username != username && typeof SimpleChat.options.onClientReceiveNewMessage === "function") {
-                          SimpleChat.options.onClientReceiveNewMessage.call(this,doc)
+                          SimpleChat.options.onClientReceiveNewMessage.call(this,doc.username)
                         }
                         Meteor.call('SimpleChat.messageReceived', id, username)
                     }
@@ -177,7 +177,7 @@ Template.SimpleChatWindow.helpers({
         return chats;
     },
     viewedMe: function () {
-        return Template.instance().getUsername() == this.username || _.contains(this.viewedBy, Template.instance().getUsername())
+        return Meteor.user().username == this.username || _.contains(this.viewedBy, Meteor.user().username)
     },
     hasMore: function () {
         return Chats.find({roomId: Template.instance().getRoomId()}, {
