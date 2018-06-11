@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Simple chat window. The star point to make your own chat",
-    version: "0.5.2",
+    version: "0.5.5",
     name: "d3k4y:simple-chat",
     git: "https://github.com/d3k4y/simple-chat"
 });
@@ -21,6 +21,10 @@ Package.onUse(function (api) {
     api.addAssets(['assets/fonts/chat.eot','assets/fonts/chat.woff','assets/fonts/chat.svg','assets/fonts/chat.ttf'],'client')
     api.mainModule('client.js', 'client');
     api.mainModule('server.js', 'server');
+
+    if (api.export) {
+        api.export(['parseChatMessages'], ['client']);
+    }
 });
 
 Npm.depends({

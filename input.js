@@ -18,7 +18,7 @@ Template.SimpleChatInput.helpers({
         return Template.instance().data.button || SimpleChat.options.texts.button
     },
     settings() {
-        console.info('settings', Template.instance().data, SimpleChat.options.autocompleteOptions);
         return Template.instance().data.autocompleteOptions || SimpleChat.options.autocompleteOptions
     }
 });
+
