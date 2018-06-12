@@ -159,7 +159,7 @@ Template.SimpleChatWindow.helpers({
 
         let handleChanges = chats.observeChanges({
             added: (id, doc) => {
-                const username = Meteor.user().username
+                const username = template.getUsername()
                 if (template.showReceived) {
                     if (!_.contains(doc.receivedBy, username) && doc.message) {
                         if(doc.username != username && typeof SimpleChat.options.onClientReceiveNewMessage === "function") {
@@ -177,7 +177,7 @@ Template.SimpleChatWindow.helpers({
         return chats;
     },
     viewedMe: function () {
-        return Meteor.user().username == this.username || _.contains(this.viewedBy, Meteor.user().username)
+        return Template.instance().getUsername() == this.username || _.contains(this.viewedBy, Template.instance().getUsername())
     },
     hasMore: function () {
         return Chats.find({roomId: Template.instance().getRoomId()}, {
