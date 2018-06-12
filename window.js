@@ -117,7 +117,7 @@ Template.SimpleChatWindow.onRendered(function () {
 
             SimpleChat.scrollToEnd(this)
             if (this.beep && window.visivility == 'hidden') {
-                new Audio('{d3k4y:simple-chat}/bell.mp3').play()
+                new Audio('{d3k4y:simple-chat}/assets/bell.mp3').play()
             }
         } else {
             if (this.beep && username != doc.username) {

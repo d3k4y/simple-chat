@@ -867,7 +867,7 @@
     font-weight: normal;
     font-style: normal;
     src: url('{d3k4y:simple-chat}/assets/fonts/chat.eot');
-    src: url('{d3k4y:simple-chat}/(assets/fonts/chat.eot?#iefix') format('embedded-opentype'),
+    src: url('{d3k4y:simple-chat}/assets/fonts/chat.eot?#iefix') format('embedded-opentype'),
     url('{d3k4y:simple-chat}/assets/fonts/chat.woff') format('woff'),
     url('{d3k4y:simple-chat}/assets/fonts/chat.ttf') format('truetype'),
     url('{d3k4y:simple-chat}/assets/fonts/chat.svg#chat') format('svg');
