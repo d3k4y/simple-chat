@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Simple chat window. The star point to make your own chat",
-    version: "0.5.7",
+    version: "0.5.8",
     name: "d3k4y:simple-chat",
     git: "https://github.com/d3k4y/simple-chat"
 });
@@ -25,6 +25,7 @@ Package.onUse(function (api) {
 
     if (api.export) {
         api.export(['parseChatMessages'], ['client']);
+        api.export(['Chats', 'Rooms'], ['client', 'server']);
     }
 });
 
