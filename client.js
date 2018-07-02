@@ -1,14 +1,14 @@
 /**
  * Created by cesar on 7/11/16.
  */
-import {Chats, Rooms} from './collections'
+import {Chats as Chats_, Rooms as Rooms_} from './collections'
 import './methods'
 import './visibility'
 import './window'
 import './input'
 
-export Chats;
-export Rooms;
+export const Chats = Chats_;
+export const Rooms = Rooms_;
 
 export function parseChatMessages (tokenCallback) {
     $('.direct-chat-messages .direct-chat-msg .direct-chat-text').each((offset, msgNode) => {

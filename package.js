@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Simple chat window. The star point to make your own chat",
-    version: "0.5.9",
+    version: "0.5.10",
     name: "d3k4y:simple-chat",
     git: "https://github.com/d3k4y/simple-chat"
 });
