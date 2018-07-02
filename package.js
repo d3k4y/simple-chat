@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Simple chat window. The star point to make your own chat",
-    version: "0.5.8",
+    version: "0.5.9",
     name: "d3k4y:simple-chat",
     git: "https://github.com/d3k4y/simple-chat"
 });
@@ -18,8 +18,15 @@ Package.onUse(function (api) {
         'mizzao:autocomplete@0.5.1'
     ])
     api.use(['check'], ['server', 'client'])
-    api.addAssets(['assets/bell.mp3'],'client')
-    api.addAssets(['assets/fonts/chat.eot','assets/fonts/chat.woff','assets/fonts/chat.svg','assets/fonts/chat.ttf'],'client')
+
+    api.addAssets([
+      'assets/bell.mp3',
+      'assets/fonts/chat.eot',
+      'assets/fonts/chat.woff',
+      'assets/fonts/chat.svg',
+      'assets/fonts/chat.ttf'
+    ],'client')
+
     api.mainModule('client.js', 'client');
     api.mainModule('server.js', 'server');
 
@@ -27,6 +34,13 @@ Package.onUse(function (api) {
         api.export(['parseChatMessages'], ['client']);
         api.export(['Chats', 'Rooms'], ['client', 'server']);
     }
+});
+
+Package.onTest(function (api) {
+    api.use([
+      'ecmascript',
+      'underscore'
+    ], ['server', 'client']);
 });
 
 Npm.depends({
