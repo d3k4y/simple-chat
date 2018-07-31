@@ -162,8 +162,8 @@ Template.SimpleChatWindow.helpers({
                 const username = template.getUsername()
                 if (template.showReceived) {
                     if (!_.contains(doc.receivedBy, username) && doc.message) {
-                        if(doc.username != username && typeof SimpleChat.options.onClientReceiveNewMessage === "function") {
-                          SimpleChat.options.onClientReceiveNewMessage.call(this,doc)
+                        if(typeof SimpleChat.options.onClientReceiveNewMessage === "function") {
+                          SimpleChat.options.onClientReceiveNewMessage.call(this, doc, doc.username !== username);
                         }
                         Meteor.call('SimpleChat.messageReceived', id, username)
                     }

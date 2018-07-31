@@ -18,7 +18,6 @@ export function parseChatMessages (tokenCallback) {
         let newContainer = $('<span></span>');
         const validTypes = ['#', '@'];
         tokens.forEach((token) => {
-
             switch(token.substr(0,1)) {
                 case '#': tokenType = 'dataroom'; break;
                 case '@': tokenType = 'user'; break;
