@@ -5,14 +5,14 @@ import {Template} from "meteor/templating";
  * Created by cesar on 25/2/16.
  */
 export const SimpleChat = {
-    options:  {
+    options: {
         texts: {
             loadMore: 'Load More',
             placeholder: 'Type message ...',
             button: 'send',
             join: 'joined the',
             left: 'left',
-            room: 'room at'
+            room: 'room at',
 
         },
         limit: 50,
@@ -21,22 +21,21 @@ export const SimpleChat = {
         showReceived: false,
         showJoined: false,
         publishChats: function (roomId, limi) {
-            return true
+            return true;
         },
         allow: function (message, roomId, username, avatar, name) {
-            return true
+            return true;
         },
         onNewMessage: function (msg) {
-            console.log(msg)
         },
         onReceiveMessage: function () {
 
         },
-        onJoin: function (roomId, username, name,date) {
-            //server
+        onJoin: function (roomId, username, name, date) {
+            // server
         },
-        onLeft: function (roomId, username, name,date) {
-            //server
+        onLeft: function (roomId, username, name, date) {
+            // server
         },
         height: '300px',
         inputTemplate: 'SimpleChatInput',
@@ -51,13 +50,13 @@ export const SimpleChat = {
                     field: "username",
                     // template: Template.userPill
                 },
-            ]
+            ],
         },
     },
     configure: function (options) {
         this.options = this.options || {};
-        _.extend(this.options, options);
+        _.extend(SimpleChat.options, options);
         return this;
-    }
-}
+    },
+};
 
