@@ -20,8 +20,7 @@ Meteor.publish("simpleChats.Chats", function (roomId, limit) {
     var options = {sort: {date: -1}}
     if (limit)
         options.limit = limit
-    }
-    return Chats.find(query, options);
+   return Chats.find(query, options);
 });
 
 Meteor.publish("simpleChats.Rooms", function () {
