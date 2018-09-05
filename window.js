@@ -1,6 +1,6 @@
 import {Template} from 'meteor/templating'
 import {Meteor} from 'meteor/meteor'
-import {Chats} from './collections'
+import {Chats, Rooms} from './collections'
 import {SimpleChat} from './config'
 import moment from 'moment'
 import './window.css'
@@ -19,7 +19,6 @@ SimpleChat.scrollToEnd = function (template) {
 }
 
 Template.SimpleChatWindow.onCreated(function () {
-
     this.initializing = true;
     this.limit = new ReactiveVar(this.limit || SimpleChat.options.limit)
     this.beep = this.data.beep != undefined ? this.data.beep : SimpleChat.options.beep
@@ -33,27 +32,27 @@ Template.SimpleChatWindow.onCreated(function () {
     if (typeof this.data.roomId != "function")
         this.getRoomId = ()=> {
             return this.data.roomId + ""
-        }
+    }
     else
         this.getRoomId = this.data.roomId
 
     if (typeof this.data.username != "function")
         this.getUsername = ()=> {
             return this.data.username + ""
-        }
+    }
     else
         this.getUsername = this.data.username
 
     if (typeof this.data.name != "function")
         this.getName = ()=> {
             return this.data.name || this.getUsername()
-        }
+    }
     else
         this.getName = this.data.name
     if (typeof this.data.avatar != "function")
         this.getAvatar = ()=> {
             return this.data.avatar
-        }
+    }
     else
         this.getAvatar = this.data.avatar
 
@@ -69,11 +68,11 @@ Template.SimpleChatWindow.onRendered(function () {
     var self = this
     self.endScroll = true;
     this.$('.direct-chat-messages').scroll(function (event) {
-        if (event.currentTarget.scrollHeight - event.currentTarget.scrollTop < 350) {
-            self.endScroll = true;
-        } else {
-            self.endScroll = false;
-        }
+            if (event.currentTarget.scrollHeight - event.currentTarget.scrollTop < 350) {
+                self.endScroll = true;
+            } else {
+                self.endScroll = false;
+            }
     })
     this.autorun(() => {
         if (this.subscriptionsReady()) {
@@ -107,18 +106,18 @@ Template.SimpleChatWindow.onRendered(function () {
                             $(o).addClass('notViewed')
                     })
                 })
+                            }
             }
-        }
         $(window).on('resize scroll focus', checkViewed)
         $('.direct-chat-messages').on('scroll', checkViewed)
     }
     $(window).on('SimpleChat.newMessage', (e, id, doc)=> {
-        if (this.endScroll) {
+            if (this.endScroll) {
 
             SimpleChat.scrollToEnd(this)
-            if (this.beep && window.visivility == 'hidden') {
+                if (this.beep && window.visivility == 'hidden') {
                 new Audio('/packages/cesarve_simple-chat/assets/bell.mp3').play()
-            }
+                }
         } else {
             if (this.beep && username != doc.username) {
                 new Audio('/packages/cesarve_simple-chat/assets/bell.mp3').play()
@@ -163,7 +162,7 @@ Template.SimpleChatWindow.helpers({
                 if (template.showReceived) {
                     if (!_.contains(doc.receivedBy, username) && doc.message) {
                         if(typeof SimpleChat.options.onClientReceiveNewMessage === "function") {
-                          SimpleChat.options.onClientReceiveNewMessage.call(this, doc, doc.username !== username);
+                            SimpleChat.options.onClientReceiveNewMessage.call(this, doc, doc.username !== username);
                         }
                         Meteor.call('SimpleChat.messageReceived', id, username)
                     }
@@ -181,7 +180,7 @@ Template.SimpleChatWindow.helpers({
     },
     hasMore: function () {
         return Chats.find({roomId: Template.instance().getRoomId()}, {
-                sort: {date: 1},
+            sort: {date: 1},
                 limit: Template.instance().limit.get()
             }).count() === Template.instance().limit.get()
     },
@@ -191,11 +190,11 @@ Template.SimpleChatWindow.helpers({
     ,
     formatDate: function (date) {
         return moment(date).calendar(null, {
-            sameDay: 'hh:mm a',
-            lastDay: '[Yesterday at ]hh:mm a',
-            lastWeek: '[Last] dddd[ at ]hh:mm a',
+                sameDay: 'hh:mm a',
+                lastDay: '[Yesterday at ]hh:mm a',
+                lastWeek: '[Last] dddd[ at ]hh:mm a',
             sameElse: 'DD/MM/YYYY hh:mm a'
-        });
+            });
     },
     height: function() {
         return Template.instance().data.height || SimpleChat.options.texts.height

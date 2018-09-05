@@ -7,7 +7,6 @@ import './config'
 import './methods'
 import './methods_server'
 
-
 /*
 export function parseChatMessages (tokenCallback) {
     $('.direct-chat-messages .direct-chat-msg .direct-chat-text').each((offset, msgNode) => {

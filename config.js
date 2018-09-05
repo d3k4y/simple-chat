@@ -17,8 +17,8 @@ export const SimpleChat = {
         },
         limit: 50,
         beep: false,
-        showViewed: false,
-        showReceived: false,
+        showViewed: true,
+        showReceived: true,
         showJoined: false,
         publishChats: function (roomId, limi) {
             return true
@@ -27,7 +27,6 @@ export const SimpleChat = {
             return true
         },
         onNewMessage: function (msg) {
-            console.log(msg)
         },
         onReceiveMessage: function () {
 

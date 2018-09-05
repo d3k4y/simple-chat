@@ -58,12 +58,12 @@ Meteor.methods({
         Rooms.upsert(roomId, {$addToSet: {usernames: username}})
         this.connection.onClose(function () {
             if(SimpleChat && SimpleChat.Chats && SimpleChat.Chats.insert) {
-              SimpleChat.Chats.insert({
-                roomId,
-                username,
-                name,
-                avatar,
-                date: new Date(),
+                SimpleChat.Chats.insert({
+                    roomId,
+                    username,
+                    name,
+                    avatar,
+                    date: new Date(),
                 join: false
               })
               Rooms.update(roomId, {$pull: {usernames: username}})

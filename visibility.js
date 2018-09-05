@@ -14,8 +14,8 @@
     if ("onfocusin" in document)
         document.onfocusin = document.onfocusout = onchange;
     // All others:
-        window.onpageshow = window.onpagehide
-            = window.onfocus = window.onblur = onchange;
+    window.onpageshow = window.onpagehide
+        = window.onfocus = window.onblur = onchange;
 
     function onchange (evt) {
         var v = "visible", h = "hidden",
@@ -28,7 +28,7 @@
             window.visivility = evtMap[evt.type];
         else
             window.visivility = this[hidden] ? "hidden" : "visible";
-    }
+        }
 
     // set the initial state (but only if browser supports the Page Visibility API)
     if( document[hidden] !== undefined )
@@ -40,9 +40,9 @@
 var intersect = function(r1, r2, bool) {
     if ( bool ) {
         return !(r2.left > r1.right ||
-        r2.right < r1.left ||
-        r2.top > r1.bottom ||
-        r2.bottom < r1.top);
+            r2.right < r1.left ||
+            r2.top > r1.bottom ||
+            r2.bottom < r1.top);
     }
     else {
         var r3 = {
@@ -69,7 +69,7 @@ var scrollrect = function(r1){
         bottom: r1.bottom + scrollrect.scrolly,
         width: r1.width,
         height: r1.height
-    };
+};
 }
 /// add in a jQuery pseudo selector :onscreen, which calculates screen presence
 /// based on getBoundingClientRect() and the full page scroll.
