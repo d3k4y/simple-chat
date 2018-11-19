@@ -8,15 +8,15 @@ Package.onUse(function (api) {
     api.versionsFrom('1.4');
 
     api.use([
-        'templating',
-        'check',
-        'ecmascript',
-        'underscore',
-        'jquery',
-        'tracker',
-        'reactive-var',
-        'mizzao:autocomplete@0.5.1'
-    ])
+      "templating",
+      "check",
+      "ecmascript",
+      "underscore",
+      "jquery",
+      "tracker",
+      "reactive-var",
+      "d3k4y:autocomplete@0.6.0"
+    ]);
     api.use(['check'], ['server', 'client'])
 
     api.addAssets([
