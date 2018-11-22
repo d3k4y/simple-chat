@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Simple chat window. The star point to make your own chat",
-    version: "0.5.14",
+    version: "0.5.15",
     name: "d3k4y:simple-chat",
     git: "https://github.com/d3k4y/simple-chat"
 });
@@ -15,7 +15,7 @@ Package.onUse(function (api) {
       "jquery",
       "tracker",
       "reactive-var",
-      "d3k4y:autocomplete@0.6.0"
+      "d3k4y:autocomplete@0.6.2"
     ]);
     api.use(['check'], ['server', 'client'])
 
